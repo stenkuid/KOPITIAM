@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const items = [{"name": "Kopitiam Signature Latte", "price": "Rp 24.000", "desc": "Espresso racikan khas dipadu susu segar creamy dan sedikit rasa manis caramel.", "img": "https://images.unsplash.com/photo-1534778101976-62847782c213?w=500&q=80", "badge": "SIGNATURE"}, {"name": "Creamy Velvet Chocolate", "price": "Rp 26.000", "desc": "Minuman cokelat kaya rasa tanpa kopi, cocok untuk bersantai sore hari.", "img": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=500&q=80", "badge": "NON-COFFEE"}, {"name": "Kopitiam Golden Fries", "price": "Rp 18.000", "desc": "Kentang goreng crispy dengan taburan bumbu gurih menemani ngobrol.", "img": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80", "badge": "SNACK"}];
+---
+
+<Layout title="Kopitiam — Cafe Nyaman untuk Kerja & Nongkrong">
+  <section class="container hero">
+    <div>
+      <h1 class="hero-title">Your Table for Coffee, Work & Good Company.</h1>
+      <p class="hero-desc">Tempat nyaman untuk menyelesaikan pekerjaan, ngobrol bersama teman, atau sekadar menikmati kopi hangat dengan tenang.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#menu" class="btn">Lihat Katalog</a>
+        <a href="#lokasi" class="btn btn-secondary">Informasi Lokasi</a>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" alt="KOPITIAM Showcase" class="hero-img" />
+    </div>
+  </section>
+
+  <section id="menu" class="section container">
+    <h2 class="section-title">Produk & Layanan Unggulan</h2>
+    <div class="cards-grid">
+      {items.map((item) => (
+        <div class="card">
+          <img src={item.img} alt={item.name} class="card-img" />
+          <div class="card-body">
+            <span class="badge">{item.badge}</span>
+            <h3 class="card-title">{item.name}</h3>
+            <p class="card-desc">{item.desc}</p>
+            <div class="card-footer">
+              <span class="card-price">{item.price}</span>
+              <a href="https://wa.me/?text=Halo%20KOPITIAM,%20saya%20tertarik%20dengan%20" class="btn" style="padding:0.4rem 1rem; font-size:0.85rem;" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="lokasi" class="container">
+    <div class="info-box">
+      <h2 class="info-title">Siap Menikmati Layanan KOPITIAM?</h2>
+      <p style="font-size:1.2rem; margin-bottom:2rem; opacity:0.9;">Kunjungi cabang kami atau tanyakan via WhatsApp resmi.</p>
+      <a href="https://wa.me/?text=Halo%20KOPITIAM" class="btn" style="background:#fff; color:var(--accent); font-size:1.1rem; padding:0.9rem 2.2rem;" target="_blank">Hubungi Kami Sekarang</a>
+    </div>
+  </section>
+</Layout>
